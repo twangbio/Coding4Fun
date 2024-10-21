@@ -1,3 +1,4 @@
+
 The task is as follows: need to write the code for NamedEntityRecognition(Token classification), using the T5 model. Who knows how to do this, please write explicitly on the example.
 
 This should work as for example:

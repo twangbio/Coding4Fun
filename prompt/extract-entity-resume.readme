@@ -1,3 +1,5 @@
+
+
 edu_prompt_tpl="""From the Resume text for a job aspirant below, extract Entities strictly as instructed below
 1. Look for Education entity type and generate the information defined below:
    `id` property of each entity must be alphanumeric and must be unique among the entities. You will be referring this property to define the relationship between entities. NEVER create other entity types that aren't mentioned below. You will have to generate as many entities as needed as per the types below:
