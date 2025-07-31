@@ -1,34 +1,77 @@
-Demo on chatbot
-1. envornment 
-	- cd C:\Users\twang\Work
-	- python -m venv venv
-	- run .\venv\Scripts\Activate.ps1 or .\venv\Scripts\Activate.bat command
-2. packages and model
-	- download huggingface-cli: pip install -U "huggingface_hub[cli]"
-	- install: pip install streamlit transformers torch
-	- install: pip install ollama
-	- huggingface-cli download Qwen/Qwen3-0.6B --cache-dir C:\Users\twang\Work\models\qwen3-0.6b
-	- huggingface-cli download Qwen/Qwen3-0.6B --cache-dir ./
-2. write a simple app.py
-3. test streamlit run app.py - working but response sucks
-===========================================================
-3.1: implement this: https://medium.com/@Shamimw/building-a-local-ai-chatbot-using-streamlit-langchain-and-ollama-484b82083988
+# YouthMindMateBot
 
-4. Code references:
-	- ollama + streamlit: https://www.youtube.com/watch?v=bAI_jWsLhFM github: https://github.com/tonykipkemboi/ollama_streamlit_demos
-	- https://github.com/romilandc/streamlit-ollama-llm 
-5. models references:
-	- Gemma is a family of lightweight, open AI models developed by Google, built upon the research and technology of the Gemini models. These models are designed to be accessible and efficient, allowing them to be run on various devices, from laptops to cloud infrastructure. Gemma is available in different sizes (2B and 7B parameters) and variants, including pre-trained and instruction-tuned versions, catering to diverse use cases like text generation, code generation, and image understanding. 
-		- https://ai.google.dev/gemma/docs/get_started#:~:text=The%20Gemma%20family%20of%20models,and%20prompt%20a%20Gemma%20model:
-		- https://huggingface.co/google/gemma-7b#:~:text=Gemma%20is%20a%20family%20of,using%20FSDP%20on%20TPU%20devices
-	- llama3.2: ollama pull llama3.2 (https://medium.com/@Shamimw/building-a-local-ai-chatbot-using-streamlit-langchain-and-ollama-484b82083988)
-	- deepseek-1.5b: ollama pull deepseek-r1:1.5b
-	- qwen3-0.6b
-	- distilgpt2: https://huggingface.co/distilbert/distilgpt2	
-	- Phi-3: 
-		- https://news.microsoft.com/source/features/ai/the-phi-3-small-language-models-with-big-potential/
-		- https://huggingface.co/microsoft/Phi-3-mini-128k-instruct
-6. tools:
-	- chatGPT
-	- google AI studio: https://aistudio.google.com/app/prompts/new_chat?model=gemma-3-27b-it
+A collection of demos and utilities for building local AI chatbots using Streamlit, LangChain, Ollama, and HuggingFace models. Includes sentiment analysis, RAG (Retrieval-Augmented Generation) with PDF knowledge, and stress-relief features (jokes, music, meditation).
+
+## 1. Environment Setup
+
+- Open terminal and run:
+    - `cd C:\Users\twang\Work`
+    - `python -m venv venv`
+    - Activate the virtual environment:
+        - PowerShell: `.\venv\Scripts\Activate.ps1`
+        - CMD: `.\venv\Scripts\Activate.bat`
+
+## 2. Install Packages and Download Models
+
+- Install required packages:
+    - `pip install -U "huggingface_hub[cli]"`
+    - `pip install streamlit transformers torch`
+    - `pip install ollama`
+    - `pip install langchain langchain-community langchain-experimental gradio pdfplumber`
+- Download models:
+    - `huggingface-cli download Qwen/Qwen3-0.6B --cache-dir C:\Users\twang\Work\models\qwen3-0.6b`
+    - `ollama pull llama3.2`
+    - `ollama pull deepseek-r1:1.5b`
+
+## 3. Running the Demos
+
+- **Basic Chatbot:**  
+  Run with HuggingFace Qwen model:  
+  `streamlit run app.py`
+
+- **Sentiment Analysis Demo:**  
+  `streamlit run demo-2-sentiment.py`
+
+- **Stress Reliever Chatbot (with jokes, music, meditation):**  
+  `streamlit run demo-2.py`  
+  or  
+  `streamlit run demo-final.py`
+
+- **Data Loading Example:**  
+  See [demo-2-data.py](demo-2-data.py)
+
+- **RAG with PDF Knowledgebase:**  
+  - [demo-3.py](demo-3.py): Uses Gradio and LangChain to answer questions from a PDF.
+  - [pdf_processor.py](pdf_processor.py): Example of PDF chunking, embedding, and retrieval.
+
+## 4. Knowledgebase
+
+- All knowledgebase files are in [knowledgebase/](knowledgebase/)
+    - `jokes.json`, `relax_music.json`, `meditation.json`: Used for stress-relief features.
+    - Several meditation and teaching PDFs for RAG demos.
+
+## 5. References
+
+- [Building a local AI chatbot using Streamlit, LangChain, and Ollama](https://medium.com/@Shamimw/building-a-local-ai-chatbot-using-streamlit-langchain-and-ollama-484b82083988)
+- [Ollama + Streamlit Demo](https://github.com/tonykipkemboi/ollama_streamlit_demos)
+- [Streamlit Ollama LLM](https://github.com/romilandc/streamlit-ollama-llm)
+- [Gemma Model Docs](https://ai.google.dev/gemma/docs/get_started)
+- [HuggingFace Gemma-7B](https://huggingface.co/google/gemma-7b)
+- [Phi-3 Model](https://huggingface.co/microsoft/Phi-3-mini-128k-instruct)
+
+## 6. Tools
+
+- [chatGPT](https://chat.openai.com/)
+- [Google AI Studio](https://aistudio.google.com/app/prompts/new_chat?model=gemma-3-27b-it)
+
+---
+
+**Main files:**
+- [app.py](app.py): Basic Streamlit chatbot using HuggingFace Qwen.
+- [demo-2.py](demo-2.py): Sentiment-aware chatbot with jokes/music/meditation.
+- [demo-final.py](demo-final.py): Enhanced version with summary and improved logic.
+- [demo-3.py](demo-3.py): RAG chatbot using PDF knowledgebase.
+- [pdf_processor.py](pdf_processor.py): PDF chunking and embedding example.
+
+See each file for more details
 
