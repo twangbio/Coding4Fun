@@ -1,0 +1,34 @@
+Demo on chatbot
+1. envornment 
+	- cd C:\Users\twang\Work
+	- python -m venv venv
+	- run .\venv\Scripts\Activate.ps1 or .\venv\Scripts\Activate.bat command
+2. packages and model
+	- download huggingface-cli: pip install -U "huggingface_hub[cli]"
+	- install: pip install streamlit transformers torch
+	- install: pip install ollama
+	- huggingface-cli download Qwen/Qwen3-0.6B --cache-dir C:\Users\twang\Work\models\qwen3-0.6b
+	- huggingface-cli download Qwen/Qwen3-0.6B --cache-dir ./
+2. write a simple app.py
+3. test streamlit run app.py - working but response sucks
+===========================================================
+3.1: implement this: https://medium.com/@Shamimw/building-a-local-ai-chatbot-using-streamlit-langchain-and-ollama-484b82083988
+
+4. Code references:
+	- ollama + streamlit: https://www.youtube.com/watch?v=bAI_jWsLhFM github: https://github.com/tonykipkemboi/ollama_streamlit_demos
+	- https://github.com/romilandc/streamlit-ollama-llm 
+5. models references:
+	- Gemma is a family of lightweight, open AI models developed by Google, built upon the research and technology of the Gemini models. These models are designed to be accessible and efficient, allowing them to be run on various devices, from laptops to cloud infrastructure. Gemma is available in different sizes (2B and 7B parameters) and variants, including pre-trained and instruction-tuned versions, catering to diverse use cases like text generation, code generation, and image understanding. 
+		- https://ai.google.dev/gemma/docs/get_started#:~:text=The%20Gemma%20family%20of%20models,and%20prompt%20a%20Gemma%20model:
+		- https://huggingface.co/google/gemma-7b#:~:text=Gemma%20is%20a%20family%20of,using%20FSDP%20on%20TPU%20devices
+	- llama3.2: ollama pull llama3.2 (https://medium.com/@Shamimw/building-a-local-ai-chatbot-using-streamlit-langchain-and-ollama-484b82083988)
+	- deepseek-1.5b: ollama pull deepseek-r1:1.5b
+	- qwen3-0.6b
+	- distilgpt2: https://huggingface.co/distilbert/distilgpt2	
+	- Phi-3: 
+		- https://news.microsoft.com/source/features/ai/the-phi-3-small-language-models-with-big-potential/
+		- https://huggingface.co/microsoft/Phi-3-mini-128k-instruct
+6. tools:
+	- chatGPT
+	- google AI studio: https://aistudio.google.com/app/prompts/new_chat?model=gemma-3-27b-it
+
